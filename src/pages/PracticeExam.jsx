@@ -102,6 +102,30 @@ export default function PracticeExam() {
         </div>
       </nav>
 
+      {/* Mock Test Card */}
+<div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
+  <h3 className="text-lg font-medium text-gray-900">Mock Placement Test</h3>
+  <p className="text-gray-600 mt-2">
+    Take a full-length mock test to prepare for real placements.
+  </p>
+  <div className="flex justify-end mt-4">
+    {/* <Link to="/mocktest/1">
+      <Button className="bg-blue-600 hover:bg-blue-700">
+        Start Mock Test
+      </Button>
+    </Link> */}
+    <a
+      href="https://www.indiabix.com/aptitude/questions-and-answers/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button className="bg-blue-600 hover:bg-blue-700">
+        Start Mock Test
+      </Button>
+    </a>
+  </div>
+</div>
+
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">Practice & Exam Portal</h1>
@@ -180,21 +204,33 @@ export default function PracticeExam() {
                   <h3 className="font-medium text-gray-900 mb-2">Data Structures</h3>
                   <p className="text-gray-600 text-sm">Focus on Trees and Graphs for upcoming technical assessments</p>
                   <Button className="mt-3 w-full bg-blue-600 hover:bg-blue-700">
-                    Start Practice
+                   <a href="https://test.sanfoundry.com/data-structure-tests/?utm_source=chatgpt.com" target="_blank">
+   Practice Data Structure Test
+</a>
+
                   </Button>
                 </div>
                 <div className="bg-white p-4 rounded-lg border border-blue-200">
                   <h3 className="font-medium text-gray-900 mb-2">Aptitude</h3>
                   <p className="text-gray-600 text-sm">Improve your quantitative and logical reasoning skills</p>
                   <Button className="mt-3 w-full bg-blue-600 hover:bg-blue-700">
-                    Start Practice
+                    <a href="https://test.sanfoundry.com/data-structure-tests/?utm_source=chatgpt.com">
+  <a href="https://aptitude-test.com/?utm_source=chatgpt.com">
+  Take the Aptitude Test
+</a>
+
+</a>
+
                   </Button>
                 </div>
                 <div className="bg-white p-4 rounded-lg border border-blue-200">
                   <h3 className="font-medium text-gray-900 mb-2">Problem Solving</h3>
                   <p className="text-gray-600 text-sm">Practice algorithmic problem solving with time constraints</p>
                   <Button className="mt-3 w-full bg-blue-600 hover:bg-blue-700">
-                    Start Practice
+                 <a href="https://www.practiceaptitudetests.com/?utm_source=chatgpt.com">
+  Take Problem Solving Test
+</a>
+
                   </Button>
                 </div>
               </div>

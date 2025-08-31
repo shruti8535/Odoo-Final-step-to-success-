@@ -8,7 +8,29 @@ import graduationImage from "../assets/graduation.svg";
 
 export default function TPOLogin() {
   const [role, setRole] = useState("tpo");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
+
+  // Static TPO credentials
+  const STATIC_EMAIL = "tpocgc@gmail.com";
+  const STATIC_PASSWORD = "tpo123";
+
+  const handleLogin = () => {
+    if (role === "tpo") {
+      if (email === STATIC_EMAIL && password === STATIC_PASSWORD) {
+        navigate("/tpo/dashboard");
+      } else {
+        setError("Invalid email or password for TPO login");
+      }
+    } else if (role === "student") {
+      navigate("/student/dashboard");
+    } else if (role === "company") {
+      navigate("/company/dashboard");
+    }
+  };
 
   return (
     <div className="min-h-screen relative">
@@ -28,7 +50,7 @@ export default function TPOLogin() {
             <p className="text-white/70 mt-2">Training & Placement Officer Portal</p>
           </div>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
             <div className="space-y-2">
               <div className="flex justify-center mb-4">
                 <RadioGroup defaultValue="tpo" className="flex gap-6" onValueChange={setRole}>
@@ -53,6 +75,8 @@ export default function TPOLogin() {
                   id="tpo-email" 
                   type="email" 
                   placeholder="Enter email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-blue-400"
                 />
               </div>
@@ -63,23 +87,20 @@ export default function TPOLogin() {
                   id="tpo-password" 
                   type="password" 
                   placeholder="Enter password" 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/50 focus:border-blue-400"
                 />
               </div>
             </div>
 
+            {/* Error message */}
+            {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+
             <Button 
               type="button" 
               className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md transition-colors"
-              onClick={() => {
-                if (role === "student") {
-                  navigate("/student/dashboard");
-                } else if (role === "company") {
-                  navigate("/company/dashboard");
-                } else if (role === "tpo") {
-                  navigate("/tpo/dashboard");
-                }
-              }}
+              onClick={handleLogin}
             >
               Login
             </Button>
